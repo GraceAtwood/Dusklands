@@ -7,13 +7,6 @@ namespace Duskland.Character
 {
     public class Item : MonoBehaviour
     {
-        public static HashSet<Item> AllItems { get; }
-
-        static Item()
-        {
-            AllItems = new HashSet<Item>();
-        }
-
         public Person Owner { get; set; }
 
         public EquipmentSlot equipmentSlot = EquipmentSlot.NONE;

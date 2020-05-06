@@ -7,13 +7,13 @@ namespace Duskland.Character
 {
     public class EquippedItemsCollection : IDictionary<EquipmentSlot, Item>
     {
-        private Dictionary<EquipmentSlot, Item> _equippedItems = new Dictionary<EquipmentSlot, Item>();
+        private readonly Dictionary<EquipmentSlot, Item> equippedItems = new Dictionary<EquipmentSlot, Item>();
 
         public Dictionary<Modifier, float> TotalModifiers { get; } = new Dictionary<Modifier, float>();
         
         public IEnumerator<KeyValuePair<EquipmentSlot, Item>> GetEnumerator()
         {
-            return _equippedItems.GetEnumerator();
+            return equippedItems.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -28,7 +28,7 @@ namespace Duskland.Character
 
         public void Clear()
         {
-            foreach (var item in _equippedItems.Select(x => x.Value))
+            foreach (var item in equippedItems.Select(x => x.Value))
             {
                 item.Hide();
             }
@@ -36,7 +36,7 @@ namespace Duskland.Character
 
         public bool Contains(KeyValuePair<EquipmentSlot, Item> item)
         {
-            throw new System.NotImplementedException();
+            return equippedItems.TryGetValue(item.Key, out var equippedItem) && equippedItem.Equals(item.Value);
         }
 
         public void CopyTo(KeyValuePair<EquipmentSlot, Item>[] array, int arrayIndex)
@@ -46,38 +46,43 @@ namespace Duskland.Character
 
         public bool Remove(KeyValuePair<EquipmentSlot, Item> item)
         {
-            throw new System.NotImplementedException();
+            if (!Contains(item))
+                return false;
+
+            equippedItems.Remove(item.Key);
+
+            return true;
         }
 
-        public int Count { get; }
-        public bool IsReadOnly { get; }
+        public int Count => equippedItems.Count;
+        public bool IsReadOnly => false;
         public void Add(EquipmentSlot key, Item value)
         {
-            throw new System.NotImplementedException();
+            equippedItems.Add(key, value);
         }
 
         public bool ContainsKey(EquipmentSlot key)
         {
-            throw new System.NotImplementedException();
+            return equippedItems.ContainsKey(key);
         }
 
         public bool Remove(EquipmentSlot key)
         {
-            throw new System.NotImplementedException();
+            return equippedItems.Remove(key);
         }
 
         public bool TryGetValue(EquipmentSlot key, out Item value)
         {
-            throw new System.NotImplementedException();
+            return equippedItems.TryGetValue(key, out value);
         }
 
         public Item this[EquipmentSlot key]
         {
-            get => throw new System.NotImplementedException();
-            set => throw new System.NotImplementedException();
+            get => equippedItems[key];
+            set => equippedItems[key] = value;
         }
 
-        public ICollection<EquipmentSlot> Keys { get; }
-        public ICollection<Item> Values { get; }
+        public ICollection<EquipmentSlot> Keys => equippedItems.Keys;
+        public ICollection<Item> Values => equippedItems.Values;
     }
 }
