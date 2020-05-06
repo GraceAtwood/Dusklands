@@ -19,7 +19,7 @@ public class PolyverseSkies : StyledMonoBehaviour
     private Vector3 GlobalSunDirection = Vector3.zero;
 	private Vector3 GlobalMoonDirection = Vector3.zero;
 
-	void Update ()
+	private void Update ()
     {
 		if (sunDirection != null)
         {

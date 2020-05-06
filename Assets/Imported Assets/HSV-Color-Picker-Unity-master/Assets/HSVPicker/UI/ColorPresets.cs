@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Assets.HSVPicker;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,13 +11,13 @@ public class ColorPresets : MonoBehaviour
 
     private ColorPresetList _colors;
 
-	void Awake()
+    private void Awake()
 	{
 //		picker.onHSVChanged.AddListener(HSVChanged);
 		picker.onValueChanged.AddListener(ColorChanged);
 	}
 
-    void Start()
+    private void Start()
     {
         _colors = ColorPresetManager.Get(picker.Setup.PresetColorsId);
 

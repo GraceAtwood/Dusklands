@@ -1,20 +1,13 @@
-﻿using System.Collections.Generic;
-using Duskland.Character;
-using Duskland.Enums;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 namespace Duskland.CharacterCreation
 {
-    public class ChangeModelButton : MonoBehaviour
+    public class ChangeRandomButton : MonoBehaviour
     {
         private CustomizeModel _characterCreator;
 
-        public bool isLeft;
-
-        public AppearanceDetail detail;
-
-        void Start()
+        private void Start()
         {
             var btn = gameObject.GetComponent<Button>();
             btn.onClick.AddListener(TaskOnClick);
@@ -22,9 +15,9 @@ namespace Duskland.CharacterCreation
             _characterCreator = GameObject.Find("CharacterCreationUI").GetComponent<CustomizeModel>();
         }
 
-        void TaskOnClick()
+        private void TaskOnClick()
         {
-            _characterCreator.ChangeModel(isLeft, detail);
+            _characterCreator.ChangeRandom();
         }
     }
 }

@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using InControl;
 using UnityEngine;
-using InControl;
 
-namespace KM
+namespace Duskland.Controllers
 {
     public class CameraManager : MonoBehaviour
     {
@@ -21,16 +19,16 @@ namespace KM
         [HideInInspector]
         public Transform camTransform;
 
-        float turnSmoothing = 0f;
+        private float turnSmoothing = 0f;
         public float minAngle = -25f;
         public float maxAngle = 40f;
 
-        float smoothX;
-        float smoothY;
-        float smoothXvelocity;
-        float smoothYvelocity;
+        private float smoothX;
+        private float smoothY;
+        private float smoothXvelocity;
+        private float smoothYvelocity;
 
-        CameraManager camManager;
+        private CameraManager camManager;
 
         public float lookAngle;
         public float tiltAngle;
@@ -67,14 +65,14 @@ namespace KM
             HandleRotations(d, v, h, targetSpeed);
         }
 
-        void FollowTarget(float d)
+        private void FollowTarget(float d)
         {
             float speed = d * followSpeed;
             Vector3 targetPosition = Vector3.Lerp(transform.position, target.position, speed);
             transform.position = targetPosition;
         }
 
-        void HandleRotations(float d, float v, float h, float targetSpeed)
+        private void HandleRotations(float d, float v, float h, float targetSpeed)
         {
             if (turnSmoothing > 0)
             {

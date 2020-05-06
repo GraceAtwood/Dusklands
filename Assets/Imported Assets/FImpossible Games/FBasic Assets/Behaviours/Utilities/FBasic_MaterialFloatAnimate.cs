@@ -14,10 +14,10 @@ namespace FIMSpace.Basics
         public float RangeValue = 0.3f;
         public float AnimateSpeed = 1f;
 
-        float time;
-        float randomValue;
+        private float time;
+        private float randomValue;
 
-        void Start()
+        private void Start()
         {
             GetRendererMaterial();
 
@@ -25,7 +25,7 @@ namespace FIMSpace.Basics
             randomValue = Random.Range(-Mathf.PI, Mathf.PI);
         }
 
-        void Update()
+        private void Update()
         {
             time += Time.deltaTime * AnimateSpeed;
 

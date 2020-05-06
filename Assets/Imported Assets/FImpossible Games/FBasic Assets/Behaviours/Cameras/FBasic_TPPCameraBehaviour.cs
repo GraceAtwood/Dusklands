@@ -64,7 +64,7 @@ namespace FIMSpace.Basics
         /// <summary>
         /// Setting some basic variables for initialization
         /// </summary>
-        void Start()
+        private void Start()
         {
             targetDistance = (DistanceRanges.x + DistanceRanges.y) / 2;
             animatedDistance = DistanceRanges.y;
@@ -78,7 +78,7 @@ namespace FIMSpace.Basics
             }
         }
 
-        void UpdateMethods()
+        private void UpdateMethods()
         {
             InputCalculations();
             ZoomCalculations();
@@ -90,19 +90,19 @@ namespace FIMSpace.Basics
         /// <summary>
         /// Execute methods responsible for component's behaviour
         /// </summary>
-        void LateUpdate()
+        private void LateUpdate()
         {
             if (UpdateClock != EFUpdateClock.LateUpdate) return;
             UpdateMethods();
         }
 
-        void Update()
+        private void Update()
         {
             if (UpdateClock != EFUpdateClock.Update) return;
             UpdateMethods();
         }
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             if (UpdateClock != EFUpdateClock.FixedUpdate) return;
             UpdateMethods();
@@ -111,7 +111,7 @@ namespace FIMSpace.Basics
         /// <summary> 
         /// Calculations for input mouse controll 
         /// </summary>
-        void InputCalculations()
+        private void InputCalculations()
         {
             targetDistance -= (Input.GetAxis("Mouse ScrollWheel") * 5f);
 

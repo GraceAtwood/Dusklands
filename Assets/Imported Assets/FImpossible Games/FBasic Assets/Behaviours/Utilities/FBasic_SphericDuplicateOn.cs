@@ -31,7 +31,7 @@ namespace FIMSpace.Basics
 
         public List<GameObject> Generated;
 
-        void OnDrawGizmos()
+        private void OnDrawGizmos()
         {
             randomSeed = new System.Random(Seed);
 

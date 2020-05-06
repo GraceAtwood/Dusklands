@@ -1,37 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using InControl;
 using UnityEngine;
-using InControl;
 
-namespace KM
+namespace Duskland.Controllers
 {
     public class InputHandler : MonoBehaviour
     {
         //Left stick
-        float vertical;
-        float horizontal;
+        private float vertical;
+        private float horizontal;
 
         //Gamepad face buttons
-        bool n_input;
-        bool e_input;
-        bool s_input;
-        bool w_input;
+        private bool n_input;
+        private bool e_input;
+        private bool s_input;
+        private bool w_input;
 
         //Triggers
-        bool r1_input;
-        float r2_value;
-        bool r2_input;
-        bool l1_input;
-        float l2_value;
-        bool l2_input;
+        private bool r1_input;
+        private float r2_value;
+        private bool r2_input;
+        private bool l1_input;
+        private float l2_value;
+        private bool l2_input;
 
-        StateManager states;
-        CameraManager camManager;
+        private StateManager states;
+        private CameraManager camManager;
 
-        float delta;
+        private float delta;
 
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             states = GetComponent<StateManager>();
             states.Init();
@@ -40,7 +38,7 @@ namespace KM
             camManager.Init(this.transform);
         }
 
-        void FixedUpdate()
+        private void FixedUpdate()
         {
             delta = Time.fixedDeltaTime;
             GetInput();
@@ -50,13 +48,13 @@ namespace KM
             camManager.Tick(delta);
         }
 
-        void Update()
+        private void Update()
         {
             delta = Time.deltaTime;
             states.Tick(delta);
         }
 
-        void GetInput()
+        private void GetInput()
         {
             // Use last device which provided input.
             var inputDevice = InputManager.ActiveDevice;
@@ -79,7 +77,7 @@ namespace KM
 
         }
 
-        void UpdateStates()
+        private void UpdateStates()
         {
             states.horizontal = horizontal;
             states.vertical = vertical;

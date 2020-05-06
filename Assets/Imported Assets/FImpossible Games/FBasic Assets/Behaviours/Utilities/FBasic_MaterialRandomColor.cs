@@ -15,7 +15,7 @@ namespace FIMSpace.Basics
         public Vector2 ValueRange = new Vector2(0.9f, 1f);
         public Vector2 AlphaRange = new Vector2(1f, 1f);
 
-        void Start()
+        private void Start()
         {
             GetRendererMaterial();
 

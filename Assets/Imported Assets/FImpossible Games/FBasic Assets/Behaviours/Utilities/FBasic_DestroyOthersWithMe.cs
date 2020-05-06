@@ -18,7 +18,7 @@ namespace FIMSpace.Basics
             ToDestroyAfterDestroy.Add(obj);
         }
 
-        void OnDestroy()
+        private void OnDestroy()
         {
             for (int i = 0; i < ToDestroyAfterDestroy.Count; i++)
             {

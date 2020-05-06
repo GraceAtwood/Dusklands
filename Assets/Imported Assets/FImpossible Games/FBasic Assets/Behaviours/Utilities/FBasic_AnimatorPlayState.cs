@@ -14,7 +14,7 @@ namespace FIMSpace.Basics
         [Tooltip("Normalized time so go from 0 to 1")]
         public Vector2 TimeOffset = Vector2.zero;
 
-        void Start()
+        private void Start()
         {
             Animator anim = GetComponentInChildren<Animator>();
 

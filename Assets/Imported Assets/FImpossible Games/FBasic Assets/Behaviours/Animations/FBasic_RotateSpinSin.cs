@@ -23,7 +23,7 @@ namespace FIMSpace.Basics
             time = Random.Range(-Mathf.PI, Mathf.PI);
         }
 
-        void Update()
+        private void Update()
         {
             // Simple use of trigonometric function
             time += Time.deltaTime * SinSpeed;

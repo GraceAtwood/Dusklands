@@ -75,16 +75,16 @@ namespace PsychoticLab
         public CharacterObjectListsAllGender allGender;
 
         // reference to camera transform, used for rotation around the model during or after a randomization (this is sourced from Camera.main, so the main camera must be in the scene for this to work)
-        Transform camHolder;
+        private Transform camHolder;
 
 		// cam rotation x
-		float x = 16;
+        private float x = 16;
 
 		// cam rotation y
-		float y = -30;
+        private float y = -30;
 
         // randomize character creating button
-        void OnGUI()
+        private void OnGUI()
         {
             /*
             if (GUI.Button(new Rect(10, 10, 150, 50), "Randomize Character"))
@@ -167,7 +167,7 @@ namespace PsychoticLab
             }
         }
 
-        void LateUpdate()
+        private void LateUpdate()
         {
             // method for handling the camera rotation around the character
             if (camHolder)
@@ -178,7 +178,7 @@ namespace PsychoticLab
         }
 
         // character randomization method
-        void Randomize()
+        private void Randomize()
         {
             // initialize settings
             Gender gender = Gender.Male;
@@ -270,7 +270,7 @@ namespace PsychoticLab
         }
 
         // randomization method based on previously selected variables
-        void RandomizeByVariable(CharacterObjectGroups cog, Gender gender, Elements elements, Race race, FacialHair facialHair, SkinColor skinColor, HeadCovering headCovering)
+        private void RandomizeByVariable(CharacterObjectGroups cog, Gender gender, Elements elements, Race race, FacialHair facialHair, SkinColor skinColor, HeadCovering headCovering)
         {
             // if facial elements are enabled
             switch (elements)
@@ -380,7 +380,7 @@ namespace PsychoticLab
         }
 
         // handle randomization of the random characters colors
-        void RandomizeColors(SkinColor skinColor)
+        private void RandomizeColors(SkinColor skinColor)
         {
             // set skin and hair colors based on skin color roll
             switch (skinColor)
@@ -452,7 +452,7 @@ namespace PsychoticLab
             mat.SetFloat("_BodyArt_Amount", Random.Range(0.0f, 1.0f));
         }
 
-        void RandomizeAndSetHairSkinColors(string info, Color[] skin, Color[] hair, Color stubble, Color scar)
+        private void RandomizeAndSetHairSkinColors(string info, Color[] skin, Color[] hair, Color stubble, Color scar)
         {
             // randomize and set elf skin color
             if (skin.Length != 0)
@@ -482,7 +482,7 @@ namespace PsychoticLab
         }
 
         // method for handling the chance of left/right items to be differnt (such as shoulders, hands, legs, arms)
-        void RandomizeLeftRight(List<GameObject> objectListRight, List<GameObject> objectListLeft, int rndPercent)
+        private void RandomizeLeftRight(List<GameObject> objectListRight, List<GameObject> objectListLeft, int rndPercent)
         {
             // rndPercent = chance for left item to be different
 
@@ -501,7 +501,7 @@ namespace PsychoticLab
         }
 
         // enable game object and add it to the enabled objects list
-        void ActivateItem(GameObject go)
+        private void ActivateItem(GameObject go)
         {
             // enable item
             go.SetActive(true);
@@ -510,13 +510,13 @@ namespace PsychoticLab
             enabledObjects.Add(go);
         }
 
-        Color ConvertColor(int r, int g, int b)
+        private Color ConvertColor(int r, int g, int b)
         {
             return new Color(r / 255.0f, g / 255.0f, b / 255.0f, 1);
         }
 
         // method for rolling percentages (returns true/false)
-        bool GetPercent(int pct)
+        private bool GetPercent(int pct)
         {
             bool p = false;
             int roll = Random.Range(0, 100);
@@ -581,7 +581,7 @@ namespace PsychoticLab
         }
 
         // called from the BuildLists method
-        void BuildList(List<GameObject> targetList, string characterPart)
+        private void BuildList(List<GameObject> targetList, string characterPart)
         {
             Transform[] rootTransform = gameObject.GetComponentsInChildren<Transform>();
 

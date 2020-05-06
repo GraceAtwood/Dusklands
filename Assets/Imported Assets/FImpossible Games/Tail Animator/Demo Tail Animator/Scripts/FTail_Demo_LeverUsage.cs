@@ -18,7 +18,7 @@ namespace FIMSpace.FTail
 
         public bool RotationLever = false;
 
-        void Start()
+        private void Start()
         {
             lever = GetComponent<FBasic_PullableLever>();
 
@@ -27,7 +27,7 @@ namespace FIMSpace.FTail
 
         }
 
-        void Update()
+        private void Update()
         {
             if (RotationLever)
             {

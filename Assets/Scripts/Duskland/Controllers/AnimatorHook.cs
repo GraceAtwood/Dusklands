@@ -1,13 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace KM
+namespace Duskland.Controllers
 {
     public class AnimatorHook : MonoBehaviour
     {
-        Animator anim;
-        StateManager states;
+        private Animator anim;
+        private StateManager states;
 
         public void Init(StateManager st)
         {
@@ -15,7 +13,7 @@ namespace KM
             anim = st.anim;
         }
 
-        void OnAnimatorMove()
+        private void OnAnimatorMove()
         {
             if (states.canMove)
                 return;

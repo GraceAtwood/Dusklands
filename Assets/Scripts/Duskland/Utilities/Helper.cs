@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 //Script helps pass animation values to the animator
-namespace KM
+namespace Duskland.Utilities
 {
     public class Helper : MonoBehaviour
     {
@@ -14,7 +12,7 @@ namespace KM
         public string[] oh_attacks;
         public string[] th_attacks;
 
-        Animator anim;
+        private Animator anim;
 
         public bool twoHanded;
         public bool enableRM;
@@ -22,7 +20,7 @@ namespace KM
         public bool interacting;
         public bool lockon;
 
-        void Start()
+        private void Start()
         {
             anim = GetComponent<Animator>();
         }
@@ -30,7 +28,7 @@ namespace KM
         public void OpenDamageColliders() { }
         public void CloseDamageColliders() {}
 
-        void Update()
+        private void Update()
         {
 
             enableRM = !anim.GetBool("can_move");

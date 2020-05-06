@@ -20,7 +20,7 @@ namespace FIMSpace.FEditor
     [CustomPropertyDrawer(typeof(FPropDrawers_MinMaxSliderAttribute))]
     public class FPropDrawers_MinMaxSlider : PropertyDrawer
     {
-        int adjustSwitcherValue = 60;
+        private int adjustSwitcherValue = 60;
 
         public override void OnGUI(Rect rect, SerializedProperty property, GUIContent content)
         {
@@ -101,7 +101,7 @@ public class BackgroundColorAttribute : PropertyAttribute
 [CustomPropertyDrawer(typeof(BackgroundColorAttribute))]
 public class BackgroundColorDecorator : DecoratorDrawer
 {
-    BackgroundColorAttribute Attribute { get { return ((BackgroundColorAttribute)base.attribute); } }
+    private BackgroundColorAttribute Attribute { get { return ((BackgroundColorAttribute)base.attribute); } }
     public override float GetHeight() { return 0; }
 
     public override void OnGUI(Rect position)

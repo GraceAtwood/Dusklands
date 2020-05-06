@@ -9,7 +9,7 @@ namespace FIMSpace.Basics
     {
         public float SecondsToDestroy = 5f;
 
-        void Start()
+        private void Start()
         {
             GameObject.Destroy(gameObject, SecondsToDestroy);
             Destroy(this);

@@ -1,9 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using InControl;
+﻿using UnityEngine;
 
-namespace KM
+namespace Duskland.Controllers
 {
     public class StateManager : MonoBehaviour
     {
@@ -43,7 +40,7 @@ namespace KM
         [HideInInspector]
         public LayerMask ignoreLayers;
 
-        float _actionDelay;
+        private float _actionDelay;
 
         public void Init()
         {
@@ -63,7 +60,7 @@ namespace KM
             anim.SetBool("onGround", true);
         }
 
-        void SetupAnimator()
+        private void SetupAnimator()
         {
             if (activeModel == null)
             {
@@ -174,7 +171,7 @@ namespace KM
             anim.SetBool("onGround", onGround);
         }
 
-        void HandleMovementAnimations()
+        private void HandleMovementAnimations()
         {
             anim.SetBool("run", run);
             anim.SetFloat("vertical", moveAmount, 0.4f, delta); //Only vertical because no lock on mode

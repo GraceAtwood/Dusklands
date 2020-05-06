@@ -36,7 +36,7 @@ namespace FIMSpace.Basics
         private Vector3 randomVector2;
 
 
-        void Start()
+        private void Start()
         {
             initPos = transform.position;
             time = Random.Range(-Mathf.PI * 3, Mathf.PI * 3);
@@ -49,7 +49,7 @@ namespace FIMSpace.Basics
             randomVector2.z = Random.Range(2.55f, 4.25f);
         }
 
-        void Update()
+        private void Update()
         {
             time += Time.deltaTime * MainSpeed;
 

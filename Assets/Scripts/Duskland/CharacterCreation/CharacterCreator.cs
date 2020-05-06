@@ -4,9 +4,6 @@ using UnityEngine;
 namespace Duskland.CharacterCreation
 {
     public enum Gender { Male, Female }
-    public enum Elements { Yes, No }
-    public enum HeadCovering { HeadCoverings_Base_Hair, HeadCoverings_No_FacialHair, HeadCoverings_No_Hair }
-    public enum FacialHair { Yes, No }
 
     public class CharacterCreator : MonoBehaviour
     {
@@ -56,13 +53,13 @@ namespace Duskland.CharacterCreation
         public CharacterObjectListsAllGender allGender;
 
         // reference to camera transform, used for rotation around the model during or after a randomization (this is sourced from Camera.main, so the main camera must be in the scene for this to work)
-        Transform camHolder;
+        private Transform camHolder;
 
         // cam rotation x
-        float x = 16;
+        private float x = 16;
 
         // cam rotation y
-        float y = -30;
+        private float y = -30;
 
         private void Start()
         {
@@ -72,7 +69,7 @@ namespace Duskland.CharacterCreation
             // disable any enabled objects before clear
             if (enabledObjects.Count != 0)
             {
-                foreach (GameObject g in enabledObjects)
+                foreach (var g in enabledObjects)
                 {
                     g.SetActive(false);
                 }
@@ -130,7 +127,7 @@ namespace Duskland.CharacterCreation
             }
         }
 
-        void LateUpdate()
+        private void LateUpdate()
         {
             // method for handling the camera rotation around the character
             if (camHolder)
@@ -141,7 +138,7 @@ namespace Duskland.CharacterCreation
         }
 
         // enable game object and add it to the enabled objects list
-        void ActivateItem(GameObject go)
+        private void ActivateItem(GameObject go)
         {
             // enable item
             go.SetActive(true);
@@ -150,7 +147,7 @@ namespace Duskland.CharacterCreation
             enabledObjects.Add(go);
         }
 
-        Color ConvertColor(int r, int g, int b)
+        private Color ConvertColor(int r, int g, int b)
         {
             return new Color(r / 255.0f, g / 255.0f, b / 255.0f, 1);
         }
@@ -209,7 +206,7 @@ namespace Duskland.CharacterCreation
         }
 
         // called from the BuildLists method
-        void BuildList(List<GameObject> targetList, string characterPart)
+        private void BuildList(List<GameObject> targetList, string characterPart)
         {
             Transform[] rootTransform = gameObject.GetComponentsInChildren<Transform>();
 

@@ -1,5 +1,4 @@
-﻿using FIMSpace.Basics;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 namespace FIMSpace.FTail

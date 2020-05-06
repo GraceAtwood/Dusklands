@@ -4,7 +4,7 @@ namespace Duskland.CharacterCreation
 {
     public class ChangePose : MonoBehaviour
     {
-        Animator anim;
+        private Animator anim;
 
         public GameObject gm;
 
@@ -13,7 +13,7 @@ namespace Duskland.CharacterCreation
         private int poseValue;
 
         // Start is called before the first frame update
-        void Start()
+        private void Start()
         {
             anim = gm.GetComponent<Animator>();
             poseValue = 1;

@@ -24,7 +24,7 @@ namespace FIMSpace.Basics
         /// <summary> 
         /// Initial settings 
         /// </summary>
-        void Start()
+        private void Start()
         {
             initPosition = transform.position;
 
@@ -36,7 +36,7 @@ namespace FIMSpace.Basics
         /// <summary>
         /// Update animation for power up object
         /// </summary>
-        void Update()
+        private void Update()
         {
             transform.Rotate(0f, RotationSpeed * (Time.deltaTime ), 0f);
             transform.position = initPosition + new Vector3(0f, Mathf.Sin((Time.time + randomOffset) * FloatingSpeedRate) * YFloatingValue, 0f);

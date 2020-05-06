@@ -34,7 +34,7 @@ namespace FIMSpace.Basics
         /// but courutine can be used only when is needed, 
         /// notice that about 1000 behaviours with empty Update() can do some overload on CPU
         /// </summary>
-        IEnumerator ClickAniamtion()
+        private IEnumerator ClickAniamtion()
         {
             buttonTransform.localPosition = buttonInitPosition;
             float time = 0f;

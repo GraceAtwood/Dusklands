@@ -12,7 +12,7 @@ namespace FIMSpace.FTail
 
         public bool blendChain = false;
 
-        void Update()
+        private void Update()
         {
             if (blendChain)
                 tailToBlend.BlendChainValue = lever.LeverValueY;

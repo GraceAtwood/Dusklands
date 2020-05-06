@@ -4,7 +4,6 @@ using System.Linq;
 using Duskland.Enums;
 using Duskland.Exceptions;
 using UnityEngine;
-using Random = System.Random;
 
 namespace Duskland.CharacterCreation
 {
@@ -19,7 +18,7 @@ namespace Duskland.CharacterCreation
                 {Gender.Male, new Dictionary<AppearanceDetail, BodyPartData>()}
             };
 
-        void Start()
+        private void Start()
         {
             ScanForBodyParts();
         }
@@ -116,11 +115,6 @@ namespace Duskland.CharacterCreation
             }
 
             currentGender = selectedGender;
-        }
-
-        public void ChangeGender()
-        {
-            ChangeGender(currentGender == Gender.Female ? Gender.Male : Gender.Female);
         }
 
         public void ChangeRandom()

@@ -13,12 +13,12 @@ namespace FIMSpace.Basics
         [Tooltip("Offset speed for property texture, moving with deltaTime")]
         public Vector2 OffsetSpeed = Vector2.zero;
 
-        void Start()
+        private void Start()
         {
             GetRendererMaterial();
         }
 
-        void Update()
+        private void Update()
         {
             Vector2 newOffset = RendererMaterial.GetTextureOffset(TextureProperty) + OffsetSpeed * Time.deltaTime;
 

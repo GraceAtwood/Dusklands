@@ -36,14 +36,14 @@ namespace FIMSpace.Basics
         /// <summary> 
         /// Just initializing few variables 
         /// </summary>
-        void Start()
+        private void Start()
         {
             speeds = Vector3.zero;
             ySpeed = 0f;
             rotation = transform.rotation.eulerAngles;
         }
 
-        void Update()
+        private void Update()
         {
             // Detecting key movement factors
             float f = Input.GetAxis("Vertical");

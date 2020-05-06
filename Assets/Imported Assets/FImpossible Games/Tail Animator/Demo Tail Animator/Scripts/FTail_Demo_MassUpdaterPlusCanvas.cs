@@ -16,7 +16,7 @@ namespace FIMSpace.FTail
             StartCoroutine(DelayedSummary());
         }
 
-        IEnumerator DelayedSummary()
+        private IEnumerator DelayedSummary()
         {
             yield return new WaitForSeconds(0.25f);
 
