@@ -10,7 +10,7 @@ namespace Duskland.Character
         private readonly Dictionary<EquipmentSlot, Item> equippedItems = new Dictionary<EquipmentSlot, Item>();
 
         public Dictionary<Modifier, float> TotalModifiers { get; } = new Dictionary<Modifier, float>();
-        
+
         public IEnumerator<KeyValuePair<EquipmentSlot, Item>> GetEnumerator()
         {
             return equippedItems.GetEnumerator();
@@ -56,6 +56,7 @@ namespace Duskland.Character
 
         public int Count => equippedItems.Count;
         public bool IsReadOnly => false;
+
         public void Add(EquipmentSlot key, Item value)
         {
             equippedItems.Add(key, value);

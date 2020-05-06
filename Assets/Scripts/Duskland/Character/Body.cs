@@ -6,11 +6,11 @@ namespace Duskland.Character
 {
     public class Body : IDictionary<BodyLocation, BodyPart>
     {
-        private Dictionary<BodyLocation, BodyPart> _bodyParts = new Dictionary<BodyLocation, BodyPart>();
-        
+        private readonly Dictionary<BodyLocation, BodyPart> bodyParts = new Dictionary<BodyLocation, BodyPart>();
+
         public IEnumerator<KeyValuePair<BodyLocation, BodyPart>> GetEnumerator()
         {
-            throw new System.NotImplementedException();
+            return bodyParts.GetEnumerator();
         }
 
         IEnumerator IEnumerable.GetEnumerator()
@@ -20,17 +20,17 @@ namespace Duskland.Character
 
         public void Add(KeyValuePair<BodyLocation, BodyPart> item)
         {
-            throw new System.NotImplementedException();
+            bodyParts.Add(item.Key, item.Value);
         }
 
         public void Clear()
         {
-            throw new System.NotImplementedException();
+            bodyParts.Clear();
         }
 
         public bool Contains(KeyValuePair<BodyLocation, BodyPart> item)
         {
-            throw new System.NotImplementedException();
+            return bodyParts.TryGetValue(item.Key, out var bodyPart) && bodyPart.Equals(item.Value);
         }
 
         public void CopyTo(KeyValuePair<BodyLocation, BodyPart>[] array, int arrayIndex)
@@ -40,38 +40,42 @@ namespace Duskland.Character
 
         public bool Remove(KeyValuePair<BodyLocation, BodyPart> item)
         {
-            throw new System.NotImplementedException();
+            if (!Contains(item))
+                return false;
+
+            return bodyParts.Remove(item.Key);
         }
 
-        public int Count { get; }
-        public bool IsReadOnly { get; }
+        public int Count => bodyParts.Count;
+        public bool IsReadOnly => false;
+
         public void Add(BodyLocation key, BodyPart value)
         {
-            throw new System.NotImplementedException();
+            bodyParts.Add(key, value);
         }
 
         public bool ContainsKey(BodyLocation key)
         {
-            throw new System.NotImplementedException();
+            return bodyParts.ContainsKey(key);
         }
 
         public bool Remove(BodyLocation key)
         {
-            throw new System.NotImplementedException();
+            return bodyParts.Remove(key);
         }
 
         public bool TryGetValue(BodyLocation key, out BodyPart value)
         {
-            throw new System.NotImplementedException();
+            return bodyParts.TryGetValue(key, out value);
         }
 
         public BodyPart this[BodyLocation key]
         {
-            get => throw new System.NotImplementedException();
-            set => throw new System.NotImplementedException();
+            get => bodyParts[key];
+            set => bodyParts[key] = value;
         }
 
-        public ICollection<BodyLocation> Keys { get; }
-        public ICollection<BodyPart> Values { get; }
+        public ICollection<BodyLocation> Keys => bodyParts.Keys;
+        public ICollection<BodyPart> Values => bodyParts.Values;
     }
 }

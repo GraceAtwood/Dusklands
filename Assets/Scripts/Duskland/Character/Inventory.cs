@@ -23,7 +23,7 @@ namespace Duskland.Character
         {
             if (item == null)
                 return;
-            
+
             _items.Add(item);
             Weight += item.weight;
         }
@@ -50,7 +50,7 @@ namespace Duskland.Character
             {
                 return false;
             }
-            
+
             if (_items.Remove(item))
             {
                 Weight -= item.weight;
