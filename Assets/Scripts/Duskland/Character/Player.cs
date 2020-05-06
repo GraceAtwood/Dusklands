@@ -1,9 +1,16 @@
 ﻿using Duskland.Enums;
+using UnityEngine;
 
 namespace Duskland.Character
 {
-    public class Player : Person
+    public class Player : MonoBehaviour
     {
         public Race race;
+        
+        public EquippedItemsCollection EquippedItems { get; } = new EquippedItemsCollection();
+
+        public Inventory Inventory { get; } = new Inventory();
+
+        public Body Body { get; } = new Body();
     }
 }

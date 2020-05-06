@@ -7,7 +7,7 @@ namespace Duskland.Character
 {
     public class Item : MonoBehaviour
     {
-        public Person Owner { get; set; }
+        public Player Owner { get; set; }
 
         public EquipmentSlot equipmentSlot = EquipmentSlot.NONE;
         public List<ItemModifier> modifiers = new List<ItemModifier>();
