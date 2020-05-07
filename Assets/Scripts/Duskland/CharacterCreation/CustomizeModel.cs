@@ -10,13 +10,13 @@ namespace Duskland.CharacterCreation
 {
     public class CustomizeModel : MonoBehaviour
     {
-        public Gender currentGender = Gender.Male;
+        public Gender currentGender = Gender.MALE;
 
         private readonly Dictionary<Gender, Dictionary<AppearanceDetail, BodyPartData>> _bodyPartData =
             new Dictionary<Gender, Dictionary<AppearanceDetail, BodyPartData>>
             {
-                {Gender.Female, new Dictionary<AppearanceDetail, BodyPartData>()},
-                {Gender.Male, new Dictionary<AppearanceDetail, BodyPartData>()}
+                {Gender.FEMALE, new Dictionary<AppearanceDetail, BodyPartData>()},
+                {Gender.MALE, new Dictionary<AppearanceDetail, BodyPartData>()}
             };
 
         private void Start()
@@ -34,48 +34,48 @@ namespace Duskland.CharacterCreation
                 {
                     case BodyPartGender.MALE:
                     {
-                        if (_bodyPartData[Gender.Male].TryGetValue(dataDescriptor.appearanceDetail, out var bodyPartData))
+                        if (_bodyPartData[Gender.MALE].TryGetValue(dataDescriptor.appearanceDetail, out var bodyPartData))
                         {
                             bodyPartData.Meshes.AddRange(children);
                         }
                         else
                         {
-                            _bodyPartData[Gender.Male][dataDescriptor.appearanceDetail] = new BodyPartData(children);
+                            _bodyPartData[Gender.MALE][dataDescriptor.appearanceDetail] = new BodyPartData(children);
                         }
 
                         break;
                     }
                     case BodyPartGender.FEMALE:
                     {
-                        if (_bodyPartData[Gender.Female].TryGetValue(dataDescriptor.appearanceDetail, out var bodyPartData))
+                        if (_bodyPartData[Gender.FEMALE].TryGetValue(dataDescriptor.appearanceDetail, out var bodyPartData))
                         {
                             bodyPartData.Meshes.AddRange(children);
                         }
                         else
                         {
-                            _bodyPartData[Gender.Female][dataDescriptor.appearanceDetail] = new BodyPartData(children);
+                            _bodyPartData[Gender.FEMALE][dataDescriptor.appearanceDetail] = new BodyPartData(children);
                         }
 
                         break;
                     }
                     case BodyPartGender.BOTH:
                     {
-                        if (_bodyPartData[Gender.Female].TryGetValue(dataDescriptor.appearanceDetail, out var bodyPartDataFemale))
+                        if (_bodyPartData[Gender.FEMALE].TryGetValue(dataDescriptor.appearanceDetail, out var bodyPartDataFemale))
                         {
                             bodyPartDataFemale.Meshes.AddRange(children);
                         }
                         else
                         {
-                            _bodyPartData[Gender.Female][dataDescriptor.appearanceDetail] = new BodyPartData(children);
+                            _bodyPartData[Gender.FEMALE][dataDescriptor.appearanceDetail] = new BodyPartData(children);
                         }
 
-                        if (_bodyPartData[Gender.Male].TryGetValue(dataDescriptor.appearanceDetail, out var bodyPartDataMale))
+                        if (_bodyPartData[Gender.MALE].TryGetValue(dataDescriptor.appearanceDetail, out var bodyPartDataMale))
                         {
                             bodyPartDataMale.Meshes.AddRange(children);
                         }
                         else
                         {
-                            _bodyPartData[Gender.Male][dataDescriptor.appearanceDetail] = new BodyPartData(children);
+                            _bodyPartData[Gender.MALE][dataDescriptor.appearanceDetail] = new BodyPartData(children);
                         }
 
                         break;
@@ -101,6 +101,11 @@ namespace Duskland.CharacterCreation
                 bodyPartData.ApplyRight();
         }
 
+        public void ChangeGender()
+        {
+            ChangeGender(currentGender == Gender.MALE ? Gender.FEMALE : Gender.MALE);
+        }
+
         public void ChangeGender(Gender selectedGender)
         {
             // Hide everything from the current gender
@@ -120,13 +125,11 @@ namespace Duskland.CharacterCreation
 
         public void ChangeRandom()
         {
-            ChangeGender(UnityEngine.Random.Range(0, 1) == 0 ? Gender.Female : Gender.Male);
+            ChangeGender(UnityEngine.Random.Range(0, 1) == 0 ? Gender.FEMALE : Gender.MALE);
             foreach (var bodyPartData in _bodyPartData[currentGender].Select(x => x.Value))
             {
                 bodyPartData.ApplyRandom();
             }
         }
-
-        
     }
 }

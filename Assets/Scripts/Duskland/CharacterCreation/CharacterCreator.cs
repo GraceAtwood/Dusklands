@@ -3,8 +3,6 @@ using UnityEngine;
 
 namespace Duskland.CharacterCreation
 {
-    public enum Gender { Male, Female }
-
     public class CharacterCreator : MonoBehaviour
     {
         [Header("Demo Settings")]

@@ -5,8 +5,6 @@ namespace Duskland.Character
 {
     public class Player : MonoBehaviour
     {
-        public Race race;
-        
         public EquippedItemsCollection EquippedItems { get; } = new EquippedItemsCollection();
 
         public Inventory Inventory { get; } = new Inventory();

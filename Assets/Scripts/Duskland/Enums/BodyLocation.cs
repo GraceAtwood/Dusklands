@@ -29,6 +29,8 @@
         LEFT_LOWER,
         LEFT_HAND,
         LEFT_KNEE,
-        LEFT_LEG
+        LEFT_LEG,
+        
+        NONE
     }
 }

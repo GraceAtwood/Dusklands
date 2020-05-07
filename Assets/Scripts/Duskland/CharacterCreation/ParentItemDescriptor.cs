@@ -6,6 +6,5 @@ namespace Duskland.CharacterCreation
     public class ParentItemDescriptor : MonoBehaviour
     {
         public EquipmentSlot equipmentSlot;
-        public PartGender partGender;
     }
 }

@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿using System;
+using Duskland.Enums;
+using Humanizer;
+using UnityEngine;
 using TMPro;
 
 namespace Duskland.CharacterCreation
@@ -6,26 +9,21 @@ namespace Duskland.CharacterCreation
     public class ChangeGenderButton : MonoBehaviour
     {
         private CustomizeModel characterCreator;
+        private TextMeshProUGUI childText;
 
         public GameObject creationUI;
 
         private void Start()
         {
             characterCreator = creationUI.GetComponent<CustomizeModel>();
+
+            childText = GetComponentInChildren<TextMeshProUGUI>();
         }
 
         public void OnClick()
         {
-            if(characterCreator.currentGender == Gender.Male)
-            {
-                characterCreator.ChangeGender(Gender.Female);
-                GetComponentInChildren<TextMeshProUGUI>().text = "Female";
-            }
-            else
-            {
-                characterCreator.ChangeGender(Gender.Male);
-                GetComponentInChildren<TextMeshProUGUI>().text = "Male";
-            }
+            characterCreator.ChangeGender();
+            childText.text = characterCreator.currentGender.Humanize().Pascalize();
         }
     }
 }

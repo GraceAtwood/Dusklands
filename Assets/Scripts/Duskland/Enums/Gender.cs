@@ -1,9 +1,12 @@
-﻿namespace Duskland.Enums
+﻿using System;
+
+namespace Duskland.Enums
 {
     public enum Gender
     {
         NONE,
         MALE,
-        FEMALE
+        FEMALE,
+        BOTH
     }
 }
