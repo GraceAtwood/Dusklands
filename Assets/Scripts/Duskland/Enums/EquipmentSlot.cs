@@ -4,6 +4,7 @@
     {
         NONE,
         HIP_POUCH,
-        SWORD
+        SWORD,
+        BACKPACK
     }
 }

@@ -8,8 +8,12 @@ namespace Duskland.Character
 {
     public class BodyPart : MonoBehaviour
     {
-        public BodyLocation bodyLocation = BodyLocation.NONE;
+        public BodyLocation bodyLocation;
         public string bodyPartName;
         public Gender gender = Gender.NONE;
+
+        public void Hide() => gameObject.SetActive(false);
+
+        public void Show() => gameObject.SetActive(true);
     }
 }

@@ -2,7 +2,10 @@
 {
     public enum BodyLocation
     {
-        NONE,
+        HELMET,
+        HELMET_DETAIL,
+        HAT,
+        MASK,
         HEAD_COVERINGS,
         HAIR,
         BROW,

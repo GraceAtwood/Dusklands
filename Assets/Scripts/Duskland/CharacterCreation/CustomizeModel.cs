@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Duskland.Character;
 using Duskland.Enums;
 using Duskland.Exceptions;
 using UnityEngine;
@@ -125,5 +126,7 @@ namespace Duskland.CharacterCreation
                 bodyPartData.ApplyRandom();
             }
         }
+
+        
     }
 }
