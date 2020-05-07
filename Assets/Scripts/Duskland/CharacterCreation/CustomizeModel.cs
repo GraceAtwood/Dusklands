@@ -86,6 +86,17 @@ namespace Duskland.CharacterCreation
             }
         }
 
+        public IEnumerable<GameObject> ExportSelectedParts()
+        {
+            foreach (var appearanceDetail in (AppearanceDetail[]) Enum.GetValues(typeof(AppearanceDetail)))
+            {
+                if (_bodyPartData[currentGender].TryGetValue(appearanceDetail, out var bodyPartData))
+                {
+                    yield return bodyPartData.CurrentMesh;
+                }
+            }
+        }
+
         public void ChangeModel(bool left, AppearanceDetail detail)
         {
             if (!_bodyPartData[currentGender].TryGetValue(detail, out var bodyPartData))

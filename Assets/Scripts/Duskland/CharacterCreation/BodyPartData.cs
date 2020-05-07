@@ -7,6 +7,8 @@ namespace Duskland.CharacterCreation
     {
         public List<GameObject> Meshes{ get; }
 
+        public GameObject CurrentMesh => Meshes[selectedIndex];
+
         private int selectedIndex;
 
         public BodyPartData(IEnumerable<GameObject> meshes)
